@@ -4,7 +4,7 @@
 </template>
 
 <script>
-import SpellCardList from "./pages/SpellCardList.vue";
+import SpellCardList from "./components/SpellCardList.vue";
 
 export default {
   name: "App",

@@ -1,37 +1,45 @@
 <template>
   <div class="container">
-    <div class="name"><p>name</p></div>
+    <div class="name">
+      <p>{{ name }}</p>
+    </div>
     <!-- <div class="info-container"> -->
     <div class="casting-time">
       <label for="casting-time">Casting Time</label>
-      <p>casting-time</p>
+      <p>{{ castingTime }}</p>
     </div>
     <div class="range">
       <label for="range">Range</label>
-      <p>range</p>
+      <p>{{ range }}</p>
     </div>
     <div class="components">
       <label for="components">Components</label>
-      <p>components</p>
+      <p>{{ components.toString() }}</p>
     </div>
     <div class="duration">
       <label for="duration">Duration</label>
-      <p>duration</p>
+      <p>{{ duration }}</p>
     </div>
     <!-- </div> -->
     <div class="description">
-      <p>
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Itaque
-        repellendus alias quaerat corporis labore neque, hic ducimus.
-        Exercitationem id aut debitis! Molestias culpa minima esse, aliquid
-        corrupti cumque inventore vitae.
-      </p>
+      <!-- <p>
+        {{ description.toString() }}
+      </p> -->
+      <p v-for="(desc, index) in description" :key="index">{{ desc }}</p>
     </div>
   </div>
 </template>
 
 <script>
 export default {
+  props: [
+    "name",
+    "castingTime",
+    "range",
+    "components",
+    "duration",
+    "description",
+  ],
   setup() {
     const title = "SpellCard works!";
 
@@ -56,12 +64,14 @@ $curve: 0.6rem;
 
 .container {
   background: rgb(119, 4, 4);
-  width: 200px;
+  width: 220px;
+  height: 300px;
   color: black;
   box-shadow: 5px 5px 3px gray;
   display: grid;
   align-items: center;
   grid-template-columns: 45% 45% !important;
+  grid-template-rows: 1fr 1fr 1fr 8fr;
   grid-template-areas:
     "name name"
     "casting range"
@@ -104,6 +114,8 @@ $curve: 0.6rem;
   .description {
     @include field(desc, $large-margin);
     border-radius: 0 0 $curve $curve;
+    height: 80%;
+    overflow: auto;
   }
 }
 </style>
