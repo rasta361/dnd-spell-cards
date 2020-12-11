@@ -3,7 +3,6 @@
     <div class="name">
       <p>{{ name }}</p>
     </div>
-    <!-- <div class="info-container"> -->
     <div class="casting-time">
       <label for="casting-time">Casting Time</label>
       <p>{{ castingTime }}</p>
@@ -20,11 +19,7 @@
       <label for="duration">Duration</label>
       <p>{{ duration }}</p>
     </div>
-    <!-- </div> -->
     <div class="description">
-      <!-- <p>
-        {{ description.toString() }}
-      </p> -->
       <p v-for="(desc, index) in description" :key="index">{{ desc }}</p>
     </div>
   </div>

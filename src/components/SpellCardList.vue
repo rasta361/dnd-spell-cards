@@ -1,6 +1,4 @@
 <template>
-  <h2>{{ title }}</h2>
-  <!-- <p>{{ displayedSpells }}</p> -->
   <p v-if="isLoading">Loading...</p>
   <div class="container" v-else>
     <spell-card
@@ -15,22 +13,11 @@
       :description="spell.desc"
     ></spell-card>
   </div>
-
-  <!-- <div class="container">
-    <spell-card class="spell-card"></spell-card>
-    <spell-card class="spell-card"></spell-card>
-    <spell-card class="spell-card"></spell-card>
-    <spell-card class="spell-card"></spell-card>
-    <spell-card class="spell-card"></spell-card>
-    <spell-card class="spell-card"></spell-card>
-  </div> -->
 </template>
 
 <script>
 import { ref, onMounted, computed } from "vue";
 import axios from "axios";
-
-// import { useStore } from "vuex";
 
 import SpellCard from "./SpellCard.vue";
 
@@ -40,7 +27,6 @@ export default {
   },
   setup() {
     const isLoading = ref(false);
-    const title = "SpellCardList work!";
     const spells = ref([]);
     const tempUrls = [];
 
@@ -88,7 +74,6 @@ export default {
     }
 
     return {
-      title,
       isLoading,
       spells,
       displayedSpells,
