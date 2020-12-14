@@ -22,10 +22,12 @@
     <div class="description">
       <p v-for="(desc, index) in description" :key="index">{{ desc }}</p>
     </div>
+    <div class="school" :class="schoolIcon"></div>
   </div>
 </template>
 
 <script>
+import { ref } from "vue";
 export default {
   props: [
     "name",
@@ -34,12 +36,13 @@ export default {
     "components",
     "duration",
     "description",
+    "school",
   ],
-  setup() {
-    const title = "SpellCard works!";
+  setup(props) {
+    const schoolIcon = ref(props.school.index);
 
     return {
-      title,
+      schoolIcon,
     };
   },
 };
@@ -59,10 +62,10 @@ $curve: 0.6rem;
 
 .container {
   background: rgb(119, 4, 4);
-  width: 220px;
+  width: 249px;
   height: 300px;
   color: black;
-  box-shadow: 5px 5px 3px gray;
+  box-shadow: 5px 5px 3px #6d553ee5;
   display: grid;
   align-items: center;
   grid-template-columns: 45% 45% !important;
@@ -71,8 +74,16 @@ $curve: 0.6rem;
     "name name"
     "casting range"
     "components duration"
-    "desc desc";
+    "desc desc"
+    ". school";
   grid-gap: 0 0.2rem !important;
+
+  transition: transform 0.1s !important;
+
+  &:hover {
+    transform: scale(1.02);
+    box-shadow: 6px 6px 4px #6d553ee5;
+  }
 
   label {
     color: rgb(119, 4, 4);
@@ -109,8 +120,44 @@ $curve: 0.6rem;
   .description {
     @include field(desc, $large-margin);
     border-radius: 0 0 $curve $curve;
-    height: 80%;
+    height: 90%;
     overflow: auto;
+    // margin-top: 0;
+    margin-bottom: 0.1rem;
+  }
+
+  .school {
+    @include field(school, $small-margin);
+    justify-self: end;
+    width: 18px;
+    height: 18px;
+    background-position: center;
+    background-size: cover;
+  }
+
+  .abjuration {
+    background-image: url("../assets/abjuration.png");
+  }
+  .conjuration {
+    background-image: url("../assets/conjuration.png");
+  }
+  .divination {
+    background-image: url("../assets/divination.png");
+  }
+  .enchantment {
+    background-image: url("../assets/enchantment.png");
+  }
+  .evocation {
+    background-image: url("../assets/evocation.png");
+  }
+  .illusion {
+    background-image: url("../assets/illusion.png");
+  }
+  .necromancy {
+    background-image: url("../assets/necromancy.png");
+  }
+  .transmutation {
+    background-image: url("../assets/transmutation.png");
   }
 }
 </style>
