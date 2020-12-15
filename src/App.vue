@@ -19,7 +19,7 @@ export default {
 }
 
 body {
-  background: #e2ad78c4;
+  background: #ac7c4fa8;
   overflow-x: hidden;
 }
 

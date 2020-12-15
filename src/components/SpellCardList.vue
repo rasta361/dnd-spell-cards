@@ -58,7 +58,7 @@ export default {
     const filteredSpells = ref([spells.value]);
     const tempUrls = [];
     const page = ref(0);
-    const amount = ref(0);
+    const amount = ref(4);
     const sizeMulti = ref(1);
     const pageSize = computed(() => {
       return amount.value * sizeMulti.value;
