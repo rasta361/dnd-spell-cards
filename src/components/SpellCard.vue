@@ -122,7 +122,6 @@ $curve: 0.6rem;
     border-radius: 0 0 $curve $curve;
     height: 90%;
     overflow: auto;
-    // margin-top: 0;
     margin-bottom: 0.1rem;
   }
 

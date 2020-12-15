@@ -153,11 +153,6 @@ export default {
       }
     });
 
-    // eslint-disable-next-line no-unused-vars
-    // let timer = setTimeout(() => {
-    //   isAnimated.value = false;
-    // }, 1000);
-
     const isAnimatedLeft = ref(false);
     const isAnimatedRight = ref(false);
     function animateCards(direction) {
@@ -166,7 +161,6 @@ export default {
 
       clearTimeout(timer);
       const timer = setTimeout(() => {
-        // console.log("new timer");
         isAnimatedLeft.value = false;
         isAnimatedRight.value = false;
       }, 250);
@@ -196,8 +190,6 @@ export default {
   display: grid;
   justify-content: center;
   grid-gap: 1rem;
-
-  // transition: transform 300ms ease-in;
 
   @media (min-width: 33rem) {
     grid-template-columns: auto auto;
